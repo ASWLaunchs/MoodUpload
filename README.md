@@ -5,7 +5,8 @@
 
 >功能及结构详细说明请访问MoodUpload百科：https://github.com/ASWLaunchs/MoodUpload/wiki
 
-安装及使用说明：
+# 安装及使用说明：
+<br>
 1.下载项目文件到你的计算机上<br>
 2.打开wampserver软件或者apache服务+mysql服务<br>
 3.创建mooddance数据库并导入数据文件<br>
