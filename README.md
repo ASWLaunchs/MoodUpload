@@ -9,7 +9,7 @@
 <br>
 1.下载项目文件到你的计算机上<br>
 2.打开wampserver软件或者apache服务+mysql服务<br>
-3.创建mooddance数据库并导入数据文件<br>
+3.创建名为moodupload的数据库并导入 /sql/moodupload.sql 数据文件完成网站初始数据导入（想自定义数据库名可在 /php/conn_PDO.php 文件中进行修改即可）<br>
 4.运行MoodUpload项目下的index.html文件即可正常访问网站首页<br>
 <br>
 
