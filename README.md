@@ -6,9 +6,9 @@
 >功能及结构详细说明请访问MoodUpload百科：https://github.com/ASWLaunchs/MoodUpload/wiki
 
 安装及使用说明：
-1.下载项目文件到你的计算机上
-2.打开wampserver软件或者apache服务+mysql服务
-3.创建mooddance数据库并导入数据文件
-4.运行MoodUpload项目下的index.html文件即可正常访问网站首页
+1.下载项目文件到你的计算机上<br>
+2.打开wampserver软件或者apache服务+mysql服务<br>
+3.创建mooddance数据库并导入数据文件<br>
+4.运行MoodUpload项目下的index.html文件即可正常访问网站首页<br>
 
 目前是初代版本，正在迭代第二代完成云相册功能，如果出现问题可以在Issues区提出，我有时间将会为你解决
