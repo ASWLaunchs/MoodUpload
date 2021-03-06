@@ -11,5 +11,5 @@
 2.打开wampserver软件或者apache服务+mysql服务<br>
 3.创建mooddance数据库并导入数据文件<br>
 4.运行MoodUpload项目下的index.html文件即可正常访问网站首页<br>
-
+<br>
 目前是初代版本，正在迭代第二代完成云相册功能，如果出现问题可以在Issues区提出，我有时间将会为你解决
