@@ -5,7 +5,7 @@ $dbservername = "localhost";
 // $dbname = "u20184087127_db";
 $dbusername = "root";
 $dbpassword = "";
-$dbname = "mooddance";
+$dbname = "moodupload";
 
 try {
     $conn = new PDO("mysql:host=$dbservername;dbname=$dbname", $dbusername, $dbpassword);
