@@ -1,5 +1,5 @@
 # MoodUpload
->网站项目名为情绪上载，你可以在这里分享你的生活心情或者浏览别人的生活心情。
+>网站项目名为MoodUpload(情绪上载)，你可以在这里分享你的生活心情或者浏览别人的生活心情。
 
 <img align="center" src="./example/poster.png"/>
 
