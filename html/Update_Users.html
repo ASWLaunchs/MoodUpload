@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人信息修改</title>
+    <link rel="stylesheet" href="../bootstrap-4.5.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/Register.css">
+    <link rel="stylesheet" href="../css/load.min.css">
+    <link rel="stylesheet" href="../css/kok-ui.css">
+    <script src="../bootstrap-4.5.0-dist/js/jquery.js"></script>
+    <script>
+        $(function () {
+            var textA, textB, textC;
+            $.getJSON("../js/city_code.json", function (data) {
+
+                // 第一个框 联动 第二个框
+                textA = "<option value=''>请选择一个省份</option>";
+                for (a in data) {
+                    textA += "<option value='" + data[a].name + "'>" + data[a].name +
+                        "</option>";
+                }
+                $("#provinces").html(textA);
+                $("#provinces").change(() => {
+                    provinceName = $("#provinces").val();
+                    for (A in data) {
+                        if (data[A].name == provinceName) {
+                            textB = "<option value=''>请选择一个城市</option>";
+                            for (B in data[A].city) {
+                                textB += "<option value='" + data[A].city[B].name + "'>" + data[
+                                        A].city[B]
+                                    .name + "</option>";
+                            }
+                            $("#cities").html(textB);
+                            cityName = $("#cities").val();
+                        } else {
+                            textB = "<option value=''>请选择一个城市</option>";
+                        }
+                    }
+                })
+
+                // 第二个框 联动 第三个框
+                $("#cities").change(() => {
+                    cityName = $("#cities").val();
+                    for (A in data) {
+                        if (data[A].name == provinceName) {
+                            for (B in data[A].city) {
+                                if (data[A].city[B].name == cityName) {
+                                    textC = "<option value=''>请选择一个区域</option>";
+                                    for (C in data[A].city[B].area) {
+                                        textC += "<option value='" + data[A].city[B]
+                                            .area[C]
+                                            .name + "'>" + data[A].city[B].area[C]
+                                            .name +
+                                            "</option>";
+                                    }
+                                    $("#areas").html(textC);
+                                    areaName = $("#areas").val();
+                                } else {
+                                    textC = "<option value=''>请选择一个区域</option>";
+                                }
+                            }
+                        }
+                    }
+                });
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+    <!-- 左下右上的边角特效 -->
+    <div class="rightTopBound"><svg id="rightTopBoundIcon" class="bi bi-grid" width="1em" height="1em"
+            style="margin-top: 34px;margin-left: 50px;" viewBox="0 0 16 16" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+        </svg></div>
+    <div class="leftBottomBound"><svg id="leftBottomBoundIcon" class="bi bi-grid" width="1em" height="1em"
+            style="margin-top: 34px;margin-left: 50px;" viewBox="0 0 16 16" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+        </svg></div>
+    <!-- 菜单 -->
+    <div class="kok-menu animate__animated animate__flipInX ">
+        <div class="kok-menu-left">
+            <a id="login" href="javascript:;"><span class="kok-menu-button1" type="button">&nbsp;<svg
+                        class="bi bi-arrow-right-square-fill" width="1em" height="1em" style="margin-top:-4px;margin-right: 8px
+                    ;" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+                    </svg><span id="kok-mean-username">个人信息</span></span></a>
+            <a href="./Upload.html"> <span class="kok-menu-button1" type="button">&nbsp;<svg
+                        class="bi bi-arrow-right-square-fill" width="1em" height="1em" style="margin-top:-4px;margin-right: 8px
+                    ;" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+                    </svg>发布作品</span></a>
+            <a id="logout" href="javascript:;"><span class="kok-menu-button1" type="button">&nbsp;<svg
+                        class="bi bi-arrow-right-square-fill" width="1em" height="1em" style="margin-top:-4px;margin-right: 8px
+                    ;" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+                    </svg>注销</span></a>
+        </div>
+        <div class="kok-menu-right">
+            <a href="../index.html"><span class="kok-menu-button2" type="button">&nbsp;<svg
+                        class="bi bi-arrow-right-square-fill" width="1em" height="1em" style="margin-top:-4px;margin-right: 8px
+                ;" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+                    </svg>首页</span></a>
+            <a href="./Register.html"><span class="kok-menu-button2" type="button">&nbsp;<svg
+                        class="bi bi-arrow-right-square-fill" width="1em" height="1em" style="margin-top:-4px;margin-right: 8px
+                    ;" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+                    </svg>注册</span></a>
+            <a href="./Official_Info.html"> <span class="kok-menu-button2" type="button">&nbsp;<svg
+                        class="bi bi-arrow-right-square-fill" width="1em" height="1em" style="margin-top:-4px;margin-right: 8px
+                        ;" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+                    </svg>官方信息</span></a>
+        </div>
+        <div class="kok-menu-close"><svg t="1592919053422" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" p-id="5138" width="48" height="48">
+                <path
+                    d="M591.142293 511.648675l416.816417-416.816417a54.608106 54.608106 0 0 0 0-76.756848l-2.291249-2.291249a54.54446 54.54446 0 0 0-76.756849 0L512.094196 433.17339 95.277779 15.784161a54.54446 54.54446 0 0 0-76.756848 0L16.229682 18.07541a53.589773 53.589773 0 0 0 0 76.756848l416.816416 416.816417-416.75277 416.880063a54.54446 54.54446 0 0 0 0 76.756848l2.291249 2.291249a54.54446 54.54446 0 0 0 76.756848 0l416.816417-416.816417 416.816416 416.816417a54.54446 54.54446 0 0 0 76.756848 0l2.29125-2.291249a54.54446 54.54446 0 0 0 0-76.756848z"
+                    fill="#2c2c2c" p-id="5139"></path>
+            </svg></div>
+        <div class="kok-menu-center">
+
+        </div>
+    </div>
+
+    <!-- 主体内容部分 -->
+    <div class="container">
+        <div class="topTitle animate__animated animate__rotateInDownLeft" role="alert">
+            <h5><svg class="bi bi-arrow-right-square-fill" width="1em" height="1em" style="margin-top:-4px;margin-right: 8px
+                ;" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+                </svg>个人信息修改</h5>
+        </div>
+        <iframe name="IFR" src="" frameborder="0" style="display: none;"></iframe>
+        <form target="IFR" onsubmit="check()">
+            <h2 style="color: rgb(255, 255, 255);text-shadow: 2px 1px rgb(15, 178, 228);">个人信息修改</h2>
+            <br>
+            <p><label>用 户 名：</label>&nbsp;<input id="username" type="text" name="username"></p>
+            <p><label>密 码：</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password1"></p>
+            <p><label>确认密码：</label><input type="password" id="passwd" name="password2"></p>
+            <p><label>Email：</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="email" type="email" readonly="true"></p>
+            <p>[Email只能唯一: <span style="color: aqua;">不可修改</span>]</p>
+            <p><label>年龄：</label><input id="age" type="number" name="age"></p>
+            <p><label>性别：</label>男&nbsp;<input id="sex" type="radio" name="sex" value="0"> &nbsp;女&nbsp;<input
+                    type="radio" name="sex" class="sex" value="1"> &nbsp;保密&nbsp;<input type="radio" name="sex"
+                    class="sex" value="2">
+                <p>[当前性别为: <span id="sex-defined" style="color: aqua;"></span>]</p>
+            </p>
+            </p>
+            <p>
+                <p><span>
+                        省(直辖市)&nbsp;&nbsp;<select id="provinces" name="province1">
+                            <option>正在加载 </option>
+                        </select>
+                    </span></p>
+                <p><span>
+                        市(自治州、市辖区)&nbsp;&nbsp;<select id="cities" name="province2">
+                            <option>正在等待 </option>
+                        </select>
+                    </span></p>
+                <p><span>
+                        </select> 县(县级市)&nbsp;&nbsp;<select id="areas" name="province3">
+                            <option>正在等待 </option>
+                        </select>
+                    </span></p>
+                <p>[当前地址为: <span id="addr" style="color: aqua;"></span>]</p>
+            </p>
+            <p>
+                <label>个人简历：</label>&nbsp;</p>
+            <p><textarea id="brief" rows="5" cols="33" type="text" name=""></textarea>
+            </p>
+            <p><button type="submit">提交</button></p>
+            <div id="displayBan">
+                <!-- Button trigger modal -->
+                <!-- <img class="kok-avator-big" src="../resources/images.jpg" alt="" data-toggle="modal"
+                    data-target="#staticBackdrop"> -->
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <hr />
+                <span></span>
+            </div>
+        </form>
+        <!-- Vertically centered modal -->
+        <!-- Modal -->
+        <!-- <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">上传头像图片</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="index_4.php" method="post" enctype="multipart/form-data">
+                            <label for="file" >文件名：</label>
+                            <input type="file" name="file" id="file"  multiple="multiple"><br>
+                            <input type="submit" name="submit" value="提交">
+                        </form>
+                        
+                        <input type="file" name="avator" id="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary">确认</button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <nav aria-label="breadcrumb" class="partTitle" id="warningTip">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page"><svg class="bi bi-card-list" width="1em"
+                        height="1em" style="margin-top:5px;margin-right: 6px
+                ;" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                        <path fill-rule="evenodd"
+                            d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z" />
+                        <circle cx="3.5" cy="5.5" r=".5" />
+                        <circle cx="3.5" cy="8" r=".5" />
+                        <circle cx="3.5" cy="10.5" r=".5" />
+                    </svg> <span id="HT"></span></li>
+            </ol>
+        </nav>
+
+    </div>
+    <script src="../bootstrap-4.5.0-dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            post = () => {
+                $.post("../php/Personal_Info.php", {
+                        username: sessionStorage.username
+                    },
+                    function (data, status) {
+                        console.log("数据: \n" + data + "\n状态: " + status);
+                        $('#username').val(data[0].username);
+                        $('#brief').val(data[0].brief);
+                        $('#age').val(data[0].age);
+                        $('#email').val(data[0].email);
+                        $('#sex-defined').html(data[0].sex == 0 ? '男' : '女');
+                        $('#addr').html(data[0].addr);
+                        if (data[0].brief != null) {
+                            $('#brief').val(data[0].brief);
+                        } else {
+                            $('#brief').val("这个人很懒，什么都没写");
+                        }
+                    });
+            }
+            if (sessionStorage.length > 0) {
+                post()
+            } else {
+                alert("你还未登录！即将返回登录页面");
+                window.location.href = '../html/Login.html';
+            }
+        })
+
+        $('.rightTopBound').eq(0).click(function () {
+            $('.kok-menu').eq(0).css("display", "block");
+        })
+
+        $('.leftBottomBound').eq(0).click(function () {
+            $('.kok-menu').eq(0).css("display", "block");
+        })
+
+        $('.kok-menu-close').eq(0).click(function () {
+            $('.kok-menu').eq(0).fadeOut();
+        })
+        //采用严格模式进行判断
+        "user strict"
+        //通过name对input框的对象
+        let username = document.getElementsByName("username");
+        let password1 = document.getElementsByName("password1");
+        let password2 = document.getElementsByName("password2");
+        let sex = document.getElementsByName("sex");
+        let province = document.getElementsByName("province");
+        let displayBan = document.getElementById("displayBan");
+        let displayBanSpan = displayBan.querySelectorAll("span");
+        let HT = document.getElementById("HT");
+        let sexState = 0;
+        let count = true;
+
+
+        function check() {
+            displayBan.style.top = "0px";
+            //保证表单提交值的顺序和安全检测的顺序，采用if...else进行判断嵌套，层层判断后再到密码判断
+            //针对前三个文本框进行判断
+
+            //top code so terrible , lets we have a new starting!
+            //this username
+            //this passwd
+            if (password1[0].value != "" && password1[0].value != null && password1[0].value.length >= 6) {
+                displayBanSpan[1].innerHTML = "第一次密码格式 正确 <font style=\"color:lightgreen;\">✔</font>";
+                count = true;
+            } else {
+                displayBanSpan[1].innerHTML =
+                    "第一次输入密码不符合要求，请输入密码不为空且长度不小于6不大于12位 <font style=\"color:red;\"> !</font>";
+                count = false;
+            }
+            if (password2[0].value != "" && password2[0].value != null && password2[0].value.length >= 6) {
+                //针对后4个input框进行判断
+                displayBanSpan[2].innerHTML = "第二次密码格式 正确 <font style=\"color:lightgreen;\">✔</font>";
+                count = true;
+            } else {
+                displayBanSpan[2].innerHTML =
+                    "第二次输入密码不符合要求，请输入密码不为空且长度不小于6不大于12位 <font style=\"color:red;\"> !</font>";
+                count = false;
+            }
+
+            //this email
+            if ($("#email").val().length > 6 && $("#email").val().length < 18) {
+                displayBanSpan[3].innerHTML =
+                    "Email必选项已选 正确 <font style=\"color:lightgreen;\">✔</font>";
+                count = true;
+            } else {
+                displayBanSpan[3].innerHTML =
+                    "Email必选项未选，请输入Email <font style=\"color:red;\"> !</font>";
+                count = false;
+            }
+            //this age
+            if ($("input[name='age']").val().length >= 1 && $("input[name='age']").val().length < 3) {
+                displayBanSpan[4].innerHTML =
+                    "年龄必选项已选 正确 <font style=\"color:lightgreen;\">✔</font>";
+                count = true;
+            } else {
+                displayBanSpan[4].innerHTML =
+                    "年龄必选项未正确输入，请输入年龄 <font style=\"color:red;\"> !</font>";
+                count = false;
+            }
+
+            //this sex
+            if (!sex[0].checked === true && !sex[1].checked === true && !sex[2].checked === true) {
+                displayBanSpan[5].innerHTML = "性别选项为必选项，请选择<font style=\"color:red;\"> !</font>";
+                count = false;
+            } else {
+                for (let i = 0; i < sex.length; i++) {
+                    if (sex[i].checked == true)
+                        sexState = i;
+                }
+                displayBanSpan[5].innerHTML = "性别必选项已选 正确 <font style=\"color:lightgreen;\">✔</font>";
+                count = true;
+            }
+
+            //this province
+            if ($('#provinces').val().trim() === "正在加载" || $('#provinces').val().trim() === "" || $(
+                    '#provinces').val().trim() === null || $('#cities').val().trim() ===
+                "" ||
+                $('#cities').val().trim() === null || $('#areas').val().trim() === "" || $('#areas')
+                .val().trim() === null) {
+                displayBanSpan[6].innerHTML = "省份选项为必选项，请选择<font style=\"color:red;\"> !</font>";
+                count = false;
+            } else {
+                displayBanSpan[6].innerHTML =
+                    "省份必选项已选 正确 <font style=\"color:lightgreen;\">✔</font>";
+                count = true;
+            }
+
+            //this tokenCode
+            tokenCode = () => {
+                let tokenCode = parseInt(Math.random() * 10) * 1998;
+                if (prompt("确定提交数据请输入验证码" + tokenCode + "：") == tokenCode) {
+                    var token = (parseInt(password1[0].value.trim()) ==
+                        parseInt(password2[0].value.trim())) ? true : false;
+                    document.body.style.backgroundColor =
+                        "#000";
+                    $('#warningTip').fadeOut();
+                    if (token) {
+                        $.post("../php/Update_Users.php", {
+                                username: $("#username").val().trim(),
+                                passwd: $("#passwd").val().trim(),
+                                age: $("#age").val().trim(),
+                                email: $("#email").val().trim(),
+                                sex: sexState,
+                                province: $('#provinces').val().trim() + $('#cities').val().trim() +
+                                    $('#areas').val().trim(),
+                                brief: $('#brief').val()
+
+                            },
+                            function (data, status) {
+                                console.log("数据: " + data + "状态: " + status);
+                                v = data;
+                                if (data[0] > 0) {
+                                    displayBanSpan[7].innerHTML = "☆ 表单已经完整填报 ☆";
+                                    displayBanSpan[8].innerHTML =
+                                        "欢迎您，验证通过！已成功修改个人信息 <font style=\"color:lightgreen;\">✔</font>";
+                                    count = true;
+                                    $('#warningTip').fadeIn();
+                                    let watingSecond = 2;
+                                    setInterval(() => {
+                                        watingSecond--;
+                                        if (watingSecond <= 0) {
+                                            window.location.href = './Personal_Info.html';
+                                        }
+                                        displayBanSpan[0].innerHTML =
+                                            `<div class="loader">
+                                                <div class="loader-inner square-spin">
+                                                    <div></div>
+                                                </div><span class="tooltip">
+                                                    <p>square-spin</p>
+                                                </span>
+                                            </div>`;
+                                    }, 1000);
+                                } else {
+                                    alert("修改个人信息失败！");
+                                    displayBanSpan[8].innerHTML =
+                                        "修改个人信息失败！ <font style=\"color:red;\"> !</font>";
+                                }
+                            });
+                    } else {
+                        displayBanSpan[7].innerHTML = "☆ 表单已经完整填报 ☆";
+                        displayBanSpan[8].innerHTML =
+                            "非常抱歉，密码错误！请重新输入 <font style=\"color:red;\"> !</font>";
+                        count = false;
+                        $('#warningTip').fadeIn();
+                    }
+                } else {
+
+                }
+            }
+
+            if (count) {
+                tokenCode();
+            }
+        }
+    </script>
+    <script src="../js/Update_Users.js"> </script>w
+    <script src="../js/Level2_Layer.js"></script>
+</body>
+
+</html>

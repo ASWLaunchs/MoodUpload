@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap-4.5.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/kok-ui.css">
+    <script src="../bootstrap-4.5.0-dist/js/jquery.js"></script>
+    <style>
+        .mr-3 {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .badge-info {
+            margin-left: 0.5em;
+        }
+
+        .kok-moderators {
+            padding: 2px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .kok-moderators:hover {
+            background-color: chocolate;
+            color: black;
+        }
+
+        .kok-media {
+            padding: 6px;
+            margin-bottom: 4px;
+            color: coral;
+            background-color: rgb(0, 0, 0);
+            border-bottom: 1px solid chocolate;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="list-unstyled" id="allComments">
+            <li class="media kok-media">
+                <img src="" class="mr-3" alt="...">
+                <div class="media-body">
+                    <h6 class="mt-0 mb-1"><span class="kok-moderators">比尔盖茨·真 </span><span class="badge badge-info">被回复
+                            99+</span></h6>
+                    最近的作业很多，我发句英文抒情下：
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                    purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                    vulputate fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+            </li>
+            <!-- <li class="media kok-media">
+                <img src="./images.jpg" class="mr-3" alt="...">
+                <div class="media-body">
+                    <h6 class="mt-0 mb-1"><span class="kok-moderators">比尔盖茨·假</span><span class="badge badge-info">被回复
+                            99+</span></h6>
+                    <span class="badge badge-warning">@比尔盖茨·真</span>
+                    大数据作业写没？
+                </div>
+            </li> -->
+        </ul>
+    </div>
+    <script>
+        if (sessionStorage.mutlimedia_id) {
+            $.get("../php/Comments.php?id=" + sessionStorage.mutlimedia_id,
+                function (data, status) {
+                    str = '';
+                    if (data.length > 0) {
+                        for (i in data) {
+                            str += ` <li class="media kok-media">
+                <img src="../resources/avator.jpg" class="mr-3" alt="...">
+                <div class="media-body">
+                    <h6 class="mt-0 mb-1"><span class="kok-moderators">` + data[i].username + ` </span><span class="badge badge-info">被回复
+                            0</span> <span class="badge badge-secondary">发布时间：` + data[i].t_date + `</span></h6>
+                    ` + data[i].usercomment + `
+                </div>
+            </li>`
+                        }
+                    }else{
+                        str=` <li class="media kok-media">
+                <img src="../resources/avator.jpg" class="mr-3" alt="...">
+                <div class="media-body">
+                    目前没有任何评论，快来占楼吧
+                </div>
+            </li>`;
+                    }
+
+                    $('#allComments').html(str);
+                });
+        }
+    </script>
+</body>
+
+</html>

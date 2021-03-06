@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap-4.5.0-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/kok-ui.css">
+    <title>情绪上载</title>
+</head>
+
+<body>
+    <!-- 左下右上的边角特效 -->
+    <div class="rightTopBound"><svg id="rightTopBoundIcon" class="bi bi-grid" width="1em" height="1em"
+            style="margin-top: 34px;margin-left: 50px;" viewBox="0 0 16 16" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+        </svg></div>
+    <div class="leftBottomBound"><svg id="leftBottomBoundIcon" class="bi bi-grid" width="1em" height="1em"
+            style="margin-top: 34px;margin-left: 50px;" viewBox="0 0 16 16" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+        </svg></div>
+    <!-- 右侧刷新小图标 -->
+    <svg id="kok-refresh" t="1592901902171" class="icon" viewBox="0 0 1024 1024" version="1.1"
+        xmlns="http://www.w3.org/2000/svg" p-id="2113" width="32" height="32">
+        <path
+            d="M 951.844 772.835 L 858.965 635.466 c -3.65568 -5.24493 -11.2835 -9.21702 -20.5783 -10.6465 c -9.21805 -1.35066 -19.0689 0 -26.3772 3.8144 L 622.757 725.722 c -8.58214 4.36941 -12.3146 11.1217 -9.85293 17.7971 c 2.62246 6.59251 11.1237 11.8385 21.929 13.4257 l 49.9753 7.46906 c -49.6579 58.3168 -115.442 93.7513 -179.639 93.7513 c -125.056 0 -264.573 -137.211 -264.573 -333.853 c 0 -23.1997 -31.145 -42.1888 -69.5992 -42.1888 s -69.5992 18.9891 -69.5992 42.1888 c 0 234.381 177.334 418.072 403.77 418.072 c 127.916 0 242.803 -57.7597 317.724 -157.154 l 95.8187 14.4589 c 2.4617 0.319488 4.84557 0.477184 7.23046 0.477184 c 0.157696 0 0.157696 0 0.397312 0 c 16.4465 0 29.7943 -8.02406 29.7943 -17.9548 C 956.132 778.714 954.543 775.617 951.844 772.835 L 951.844 772.835 Z M 185.934 392.106 c -9.29587 -1.4295 -17.0025 -5.2439 -20.5783 -10.6455 L 70.7297 241.705 c -4.28954 -6.27712 -2.22413 -13.6663 5.08416 -18.6716 c 7.31034 -5.2439 18.9102 -7.38816 29.7155 -5.79994 l 95.8976 14.4599 c 74.923 -99.2338 189.809 -157.233 317.726 -157.233 c 226.435 0 403.769 183.77 403.769 418.151 c 0 23.3585 -31.1439 42.1888 -69.6003 42.1888 c -38.4532 0 -69.5982 -18.8303 -69.5982 -42.1888 c 0 -196.642 -139.437 -333.854 -264.571 -333.854 c -64.1966 0 -129.983 35.4345 -179.64 93.7523 l 49.9753 7.46906 c 10.8841 1.82682 19.3065 6.83213 21.9279 13.4267 c 2.54259 6.67443 -1.27181 13.6653 -9.85088 18.0347 l -189.332 97.0107 c -5.40262 2.78016 -12.2358 4.13184 -19.1478 4.13184 C 190.622 392.583 188.238 392.423 185.934 392.106 Z"
+            fill="#ff7f50" p-id="2114"></path>
+    </svg>
+    <!-- 详情页面大背景 -->
+    <div class="kok-bk " style="display: none;">
+        <div class="row">
+            <div class="col-4">
+                <iframe class="kok-iframe-big" src="./html/comment.html" frameborder="0"
+                    style="height: 100vh;"></iframe>
+            </div>
+            <div class="col-8">
+                <img id="moodImg" src="./resources/images.jpg" alt=""
+                    style="width: 100%;height: 100vh;cursor: pointer;">
+            </div>
+        </div>
+        <div class="input-group mb-3 kok-button-bottom">
+            <input id="sendMes" type="text" class="form-control" placeholder="写下你想说的话" aria-label="Recipient's username"
+                aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-warning" type="button" id="send">发表</button>
+            </div>
+        </div>
+        <svg id="kok-bk-close" t="1593597348874" class="icon" viewBox="0 0 1024 1024" version="1.1"
+            xmlns="http://www.w3.org/2000/svg" p-id="5286" width="32" height="32">
+            <path
+                d="M933.595429 955.830857h-121.344a20.260571 20.260571 0 0 1 0-40.448h101.156571v-101.083428a20.187429 20.187429 0 1 1 40.448 0v121.344a20.260571 20.260571 0 0 1-20.260571 20.187428z m0-242.614857a20.260571 20.260571 0 0 1-20.187429-20.260571V571.611429a20.187429 20.187429 0 1 1 40.448 0v121.417142a20.260571 20.260571 0 0 1-20.260571 20.187429z m0-242.688a20.260571 20.260571 0 0 1-20.187429-20.187429v-121.417142a20.187429 20.187429 0 1 1 40.448 0v121.417142a20.260571 20.260571 0 0 1-20.260571 20.187429z m0-242.688a20.260571 20.260571 0 0 1-20.187429-20.187429V106.569143h-101.156571a20.260571 20.260571 0 0 1 0-40.448h121.417142c11.044571 0 20.187429 8.996571 20.187429 20.187428V207.725714a20.260571 20.260571 0 0 1-20.260571 20.187429z m-242.688 727.990857H569.563429a20.260571 20.260571 0 0 1 0-40.448h121.417142a20.260571 20.260571 0 0 1 0 40.448z m0-849.261714H569.563429a20.260571 20.260571 0 0 1 0-40.448h121.417142a20.260571 20.260571 0 0 1 0 40.448z m-242.614858 0h-121.417142a20.260571 20.260571 0 0 1 0-40.448h121.417142a20.260571 20.260571 0 0 1 0 40.448zM205.531429 955.830857H84.114286a20.260571 20.260571 0 0 1-20.187429-20.187428v-121.344a20.187429 20.187429 0 1 1 40.448 0v101.083428h101.156572a20.187429 20.187429 0 0 1 0 40.448z m0-849.261714H104.448v101.083428a20.260571 20.260571 0 0 1-40.448 0V86.308571c0-11.190857 9.069714-20.187429 20.260571-20.187428H205.531429a20.187429 20.187429 0 0 1 0 40.448zM84.114286 308.662857c11.190857 0 20.260571 9.069714 20.260571 20.260572v121.344a20.260571 20.260571 0 0 1-40.448 0v-121.417143c0-11.117714 9.069714-20.187429 20.260572-20.187429z m0 242.688c11.190857 0 20.260571 9.069714 20.260571 20.187429v121.417143a20.260571 20.260571 0 0 1-40.448 0v-121.417143c0-11.117714 9.069714-20.187429 20.260572-20.187429z m616.301714 110.08l-40.96 40.96a19.382857 19.382857 0 0 1-27.355429 0L516.096 586.532571 400.091429 702.537143a19.382857 19.382857 0 0 1-27.282286 0l-40.96-40.96a19.382857 19.382857 0 0 1 0-27.355429l116.077714-116.077714-116.077714-116.004571a19.382857 19.382857 0 0 1 0-27.355429l40.96-40.96a19.309714 19.309714 0 0 1 27.282286 0l116.077714 116.077714 116.077714-116.077714a19.309714 19.309714 0 0 1 27.355429 0l40.96 40.96a19.382857 19.382857 0 0 1 0 27.355429L584.411429 518.144l116.150857 116.077714a19.382857 19.382857 0 0 1 0 27.282286zM326.948571 915.382857h121.344a20.260571 20.260571 0 0 1 0 40.448h-121.417142a20.260571 20.260571 0 0 1 0-40.448z"
+                fill="#ff7f50" p-id="5287"></path>
+        </svg>
+        <!-- 爱心容器 -->
+        <div id="love" style="position: fixed;">
+
+        </div>
+    </div>
+    <!-- 右侧小火箭 -->
+    <a href="javascript:;"><svg id="kok-topRocket" style="
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 666;" t="1593050770474" class="icon" viewBox="0 0 1024 1024" version="1.1"
+            xmlns="http://www.w3.org/2000/svg" p-id="2195" width="32" height="32">
+            <path
+                d="M820.8 507.2c-8.1-12.1-76.9-20.2-113.3-24.3-4-169.9-68.8-327.7-173.9-412.6-12.1-8.1-28.3-8.1-40.5 0C387.9 155.2 323.2 313 319.2 482.9c-32.4 4-105.2 12.1-113.3 24.3-20.2 24.3-20.2 222.5-8.1 230.6 8.1 8.1 52.6-44.5 89-56.6 20.2-8.1 40.5-8.1 52.6-12.1 4 8.1 12.1 12.1 24.3 16.2 48.5 4 101.1 8.1 149.7 8.1s101.1-4 149.7-8.1c8.1 0 20.2-8.1 24.3-16.2 12.1 0 32.4 4 52.6 12.1 36.4 12.1 80.9 64.7 89 56.6 7.9-8.2 12-206.4-8.2-230.6z m-311.5-36.4c-44.5 0-76.9-36.4-76.9-76.9 0-44.5 36.4-76.9 76.9-76.9s76.9 36.4 76.9 76.9c4 40.5-32.4 76.9-76.9 76.9z"
+                p-id="2196" fill="#ff7f50"></path>
+            <path
+                d="M359.6 733.7c-24.3 0-40.5 16.2-40.5 40.5v97.1c0 24.3 16.2 40.5 40.5 40.5s40.5-16.2 40.5-40.5v-97.1c0-24.3-16.2-40.5-40.5-40.5zM663 733.7c-24.3 0-40.5 16.2-40.5 40.5v97.1c0 24.3 16.2 40.5 40.5 40.5s40.5-16.2 40.5-40.5v-97.1c-0.1-24.3-16.2-40.5-40.5-40.5zM513.3 749.9c-24.3 0-40.5 16.2-40.5 40.5v129.4c0 24.3 16.2 40.5 40.5 40.5s40.5-16.2 40.5-40.5V790.3c0-20.2-20.3-40.4-40.5-40.4z"
+                p-id="2197" fill="#ff7f50"></path>
+        </svg></a>
+    <!-- 菜单 -->
+    <div class="kok-menu animate__animated animate__flipInX ">
+        <div class="kok-menu-left">
+            <a id="login" href="javascript:;"><span class="kok-menu-button1" type="button">&nbsp;<svg
+                        class="bi bi-arrow-right-square-fill" width="1em" height="1em" style="margin-top:-4px;margin-right: 8px
+                ;" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+                    </svg><span id="kok-mean-username">个人信息(未登录)</span></span></a>
+            <a href="./html/Upload.html"> <span class="kok-menu-button1" type="button">&nbsp;<svg
+                        class="bi bi-arrow-right-square-fill" width="1em" height="1em" style="margin-top:-4px;margin-right: 8px
+                ;" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+                    </svg>发布作品</span></a>
+            <a id="logout" href="javascript:;"><span class="kok-menu-button1" type="button">&nbsp;<svg
+                        class="bi bi-arrow-right-square-fill" width="1em" height="1em" style="margin-top:-4px;margin-right: 8px
+                ;" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+                    </svg>注销</span></a>
+        </div>
+        <div class="kok-menu-right">
+            <a href="./index.html"><span class="kok-menu-button2" type="button">&nbsp;<svg
+                        class="bi bi-arrow-right-square-fill" width="1em" height="1em" style="margin-top:-4px;margin-right: 8px
+        ;" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+                    </svg>首页</span></a>
+            <a href="./html/Register.html"><span class="kok-menu-button2" type="button">&nbsp;<svg
+                        class="bi bi-arrow-right-square-fill" width="1em" height="1em" style="margin-top:-4px;margin-right: 8px
+                ;" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+                    </svg>注册</span></a>
+            <a href="./html/Official_Info.html"> <span class="kok-menu-button2" type="button">&nbsp;<svg
+                        class="bi bi-arrow-right-square-fill" width="1em" height="1em" style="margin-top:-4px;margin-right: 8px
+                    ;" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+                    </svg>官方信息</span></a>
+        </div>
+        <div class="kok-menu-close"><svg t="1592919053422" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" p-id="5138" width="48" height="48">
+                <path
+                    d="M591.142293 511.648675l416.816417-416.816417a54.608106 54.608106 0 0 0 0-76.756848l-2.291249-2.291249a54.54446 54.54446 0 0 0-76.756849 0L512.094196 433.17339 95.277779 15.784161a54.54446 54.54446 0 0 0-76.756848 0L16.229682 18.07541a53.589773 53.589773 0 0 0 0 76.756848l416.816416 416.816417-416.75277 416.880063a54.54446 54.54446 0 0 0 0 76.756848l2.291249 2.291249a54.54446 54.54446 0 0 0 76.756848 0l416.816417-416.816417 416.816416 416.816417a54.54446 54.54446 0 0 0 76.756848 0l2.29125-2.291249a54.54446 54.54446 0 0 0 0-76.756848z"
+                    fill="#2c2c2c" p-id="5139"></path>
+            </svg></div>
+        <div class="kok-menu-center">
+
+        </div>
+    </div>
+
+    <!-- 主体内容部分 -->
+    <div class="container" style="background-color: rgb(252, 252, 252);">
+        <div class="topTitle animate__animated animate__rotateInDownLeft" role="alert">
+            <h5><svg class="bi bi-arrow-right-square-fill" width="1em" height="1em" style="margin-top:-4px;margin-right: 8px
+                ;" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm5.646 10.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L9.793 7.5H5a.5.5 0 0 0 0 1h4.793l-2.147 2.146z" />
+                </svg>首页</h5>
+        </div>
+        <br />
+        <div class="kok-rotate3d-x">
+            <div class="row animate__animated animate__slideInLeft" style="padding: 10px;">
+                <div class="col-sm kok-video"><img src="./resources/images.jpg" class="kok-img" alt="">
+                    <div class="kok-card">
+                        <h5>无标题</h5>
+                        <h6>暂无任何信息</h6>
+                    </div>
+                </div>
+                <div class="col-sm kok-video"><img src="./resources/images.jpg" class="kok-img" alt="">
+                    <div class="kok-card">
+                        <h5>无标题</h5>
+                        <h6>暂无任何信息</h6>
+                    </div>
+                </div>
+                <div class="col-sm kok-video"><img src="./resources/images.jpg" class="kok-img" alt="">
+                    <div class="kok-card">
+                        <h5>无标题</h5>
+                        <h6>暂无任何信息</h6>
+                    </div>
+                </div>
+                <div class="col-sm kok-video"><img src="./resources/images.jpg" class="kok-img" alt="">
+                    <div class="kok-card">
+                        <h5>无标题</h5>
+                        <h6>暂无任何信息</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="kok-rotate3d-x">
+            <div class="row " style="padding: 10px;">
+                <div class="col-sm kok-video"><img src="./resources/images.jpg" class="kok-img" alt="">
+                    <div class="kok-card">
+                        <h5>无标题</h5>
+                        <h6>暂无任何信息</h6>
+                    </div>
+                </div>
+                <div class="col-sm kok-video"><img src="./resources/images.jpg" class="kok-img" alt="">
+                    <div class="kok-card">
+                        <h5>无标题</h5>
+                        <h6>暂无任何信息</h6>
+                    </div>
+                </div>
+                <div class="col-sm kok-video"><img src="./resources/images.jpg" class="kok-img" alt="">
+                    <div class="kok-card">
+                        <h5>无标题</h5>
+                        <h6>暂无任何信息</h6>
+                    </div>
+                </div>
+                <div class="col-sm kok-video"><img src="./resources/images.jpg" class="kok-img" alt="">
+                    <div class="kok-card">
+                        <h5>无标题</h5>
+                        <h6>暂无任何信息</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="kok-rotate3d-x">
+            <div class="row animate__animated animate__slideInRight" style="padding: 10px;">
+                <div class="col-sm kok-video"><img src="./resources/images.jpg" class="kok-img" alt="">
+                    <div class="kok-card">
+                        <h5>无标题</h5>
+                        <h6>暂无任何信息</h6>
+                    </div>
+                </div>
+                <div class="col-sm kok-video"><img src="./resources/images.jpg" class="kok-img" alt="">
+                    <div class="kok-card">
+                        <h5>无标题</h5>
+                        <h6>暂无任何信息</h6>
+                    </div>
+                </div>
+                <div class="col-sm kok-video"><img src="./resources/images.jpg" class="kok-img" alt="">
+                    <div class="kok-card">
+                        <h5>无标题</h5>
+                        <h6>暂无任何信息</h6>
+                    </div>
+                </div>
+                <div class="col-sm kok-video"><img src="./resources/images.jpg" class="kok-img" alt="">
+                    <div class="kok-card">
+                        <h5>无标题</h5>
+                        <h6>暂无任何信息</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./resources/images.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./resources/images1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./resources/images2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <hr>
+        <footer style="text-align:center">
+            我们本是尘埃，何必自找忧虑 —— MoodUpload
+        </footer>
+        <br>
+    </div>
+    <script src="./bootstrap-4.5.0-dist/js/jquery.js"></script>
+    <script src="./bootstrap-4.5.0-dist/js/bootstrap.js"></script>
+    <script src="./js/index.js"></script>
+    <script>
+        $('#send').click(() => {
+            $.get("./php/Insert_comment.php", {
+                    comment: $('#sendMes').val().trim(),
+                    email: sessionStorage.email,
+                    mutlimedia_id: sessionStorage.mutlimedia_id
+                },
+                (data) => {
+                    k = data;
+                    console.log(data);
+                    if (data == 1) {
+                        alert('发布成功');
+                        $('#sendMes').val('')
+                    } else {
+                        alert('发布失败');
+                    }
+                })
+        })
+    </script>
+</body>
+
+</html>

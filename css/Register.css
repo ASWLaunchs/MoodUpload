@@ -1,0 +1,102 @@
+body {
+    background-color: rgb(0, 0, 0);
+}
+
+form {
+    position: relative;
+    width: 700px;
+    padding: 20px;
+    font-weight: 600;
+    /* border-radius: 14px; */
+    color: coral;
+    /* box-shadow: 2px 2px 12px #3c3c3c; */
+    /* background: darkgray; */
+    background-color: rgb(0, 0, 0);
+    margin: 5% auto;
+    cursor: pointer;
+    overflow: hidden;
+    border-bottom: 4px solid coral;
+    transition: all 0.8s ease;
+}
+
+form:hover {
+    /* background: rgb(219, 219, 219); */
+}
+
+button {
+    color: rgb(224, 44, 24);
+    width: 80px;
+    padding: 2px 10px;
+    border: none;
+    border: 2px solid salmon;
+    border-radius: 4px;
+}
+
+#displayBan {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    border-left: 2px solid seashell;
+    /* background-color: rgb(245, 130, 117); */
+    background-color: rgb(0, 0, 0);
+    transition: all 0.2s ease-in;
+}
+
+/* #displayBan span {
+    display: block;
+    width: fit-content;
+    margin-top: 6%;
+    padding: 0 4px;
+    color: rgb(255, 244, 182);
+    text-shadow: 1px 1px rgb(141, 27, 141);
+    background-color: skyblue;
+} */
+
+#displayBan span {
+    display: block;
+    width: fit-content;
+    text-indent: 0.5em;
+    margin-top: 6%;
+    margin-left: 2px;
+    font-weight: 500;
+    color: coral;
+    border-bottom: 1px solid coral;
+    background-color: rgb(0, 0, 0);
+}
+
+
+#displayBan:hover {
+    width: 42%;
+    border-left: 2px solid rgb(111, 214, 255);
+}
+
+#HT {
+    color: red;
+    text-align: center;
+}
+
+select{
+    padding: 1px 1px 2px;
+}
+
+@media screen and (max-width: 700px) {
+    form {
+        width: 100%;
+    }
+}
+
+.kok-menu{
+    display: none;
+}
+
+#warningTip{
+    display: none;
+    background-color: black;
+}
+
+.kok-avator-big{
+    margin-left: 14px;
+    box-shadow:2px 2px 15px coral;
+}

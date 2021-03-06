@@ -1,0 +1,23 @@
+body{
+    height: 100%;
+    background-color: black;
+}
+.kok-menu{
+    display: none;
+}
+
+
+.container{
+    background-color: #000;
+}
+
+.upload{
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+
+@media screen and (max-width:768px){
+    .col-md-8{
+        margin-top: -600px;
+    }
+}
