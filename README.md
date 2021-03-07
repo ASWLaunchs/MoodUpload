@@ -6,7 +6,7 @@
 
 <img align="center" src="./example/poster.png"/>
 
->功能及结构详细说明请访问MoodUpload百科：https://github.com/ASWLaunchs/MoodUpload/wiki/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3
+>功能及结构详细说明请访问MoodUpload百科：https://github.com/ASWLaunchs/MoodUpload/wiki/
 
 # 安装及使用说明：
 <br>
