@@ -1,6 +1,6 @@
 # MoodUpload
 
-<img align="center" src="logo.png"/>
+<p align="center" ><img src="logo.png"/></p>
 
 >网站项目名为MoodUpload(情绪上载)，你可以在这里分享你的生活心情或者浏览别人的生活心情。
 
